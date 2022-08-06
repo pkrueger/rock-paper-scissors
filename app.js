@@ -1,3 +1,7 @@
+//Globals: keeping track of winners
+let playerWinCount = 0
+let compWinCount = 0
+
 //Create a computer choice
 function getComputerChoice() {
   let randomNumber = Math.floor(Math.random() * 3)
@@ -23,10 +27,12 @@ function playRound(playerChoice, computerChoice = getComputerChoice()) {
     return `Draw! You both picked ${firstCapital(playerChoice)}`
 
   } else if (winConditions(playerChoice, computerChoice)) {
+    winCount('player')
     return `You win! ${firstCapital(playerChoice)} beats ` + 
     firstCapital(computerChoice)
 
   } else {
+    winCount('computer')
     return `You lose! ${firstCapital(playerChoice)} is beaten by ` +
     firstCapital(computerChoice)
   }
@@ -50,4 +56,40 @@ function winConditions(playerChoice, computerChoice) {
 //Capitalizes the first letter of the inputted string
 function firstCapital(string) {
   return string[0].toUpperCase() + string.substring(1)
+}
+
+//Plays the actual game as 5 rounds. Keeps the score and decides a winner
+//at the end
+function game() {
+  for (let i = 0; i < 5; i++) {
+    playerChoice = prompt('Choose rock, paper or scissors')
+    console.log(playRound(playerChoice))
+  }
+  console.log(endMessage())
+  winCount('reset')
+}
+
+//Takes in different commands and returns the information needed
+function winCount(command) {
+  if (command == 'player') {
+    playerWinCount++
+  } else if (command == 'computer') {
+    compWinCount++
+  } else if (command == 'reset') {
+    playerWinCount = 0
+    compWinCount = 0
+  }
+}
+
+function endMessage() {
+  let result
+
+  if (playerWinCount > compWinCount) {
+    result = 'won'
+  } else if (playerWinCount < compWinCount) {
+    result = 'lost'
+  } else {
+    result = 'drew'
+  }
+  return `You ${result} ${playerWinCount} to ${compWinCount}`
 }
