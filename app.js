@@ -1,3 +1,9 @@
+//Global scores
+let scores = {
+  player: 0,
+  computer: 0
+}
+
 //Create a computer choice
 function getComputerChoice() {
   let randomNumber = Math.floor(Math.random() * 3)
@@ -59,17 +65,12 @@ function game() {
     playerChoice = prompt('Choose rock, paper or scissors')
     console.log(playRound(playerChoice))
   }
-  console.log(endMessage(winCount('return')))
+  console.log(endMessage(winCount()))
   winCount('reset')
 }
 
 //Takes in different commands to increase the win count or reset to zero
 function winCount(command) {
-  let scores = {
-    player: 0,
-    computer: 0
-  }
-
   if (command == 'player') {
     scores.player++
   } else if (command == 'computer') {
@@ -77,22 +78,11 @@ function winCount(command) {
   } else if (command == 'reset') {
     scores.player = 0
     scores.computer = 0
-  } else if (command == 'return') {
-    return scores
   }
 }
 
 //Prints an end message to the console on who won and the score
-function endMessage(scores) {
-  //let result
-  // if (playerWinCount > compWinCount) {
-  //   result = 'won'
-  // } else if (playerWinCount < compWinCount) {
-  //   result = 'lost'
-  // } else {
-  //   result = 'drew'
-  // }
-  // below is the ternary equivalent of the commented section above
+function endMessage() {
   let result = scores.player > scores.computer ? 'won' : 
                scores.player < scores.computer ? 'lost' : 'drew'
 
