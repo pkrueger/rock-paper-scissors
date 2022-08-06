@@ -15,8 +15,6 @@ function getComputerChoice() {
   }
 }
 
-//Get input for player choice
-
 //Play a round and display message
   //If player choice beats computer choice: win
   //Else: lose
@@ -58,8 +56,8 @@ function firstCapital(string) {
   return string[0].toUpperCase() + string.substring(1)
 }
 
-//Plays the actual game as 5 rounds. Keeps the score and decides a winner
-//at the end
+//Plays the actual game as 5 rounds. Prompts the user for a choice and compares
+//to the computer choice. Keeps the score and decides a winner at the end
 function game() {
   for (let i = 0; i < 5; i++) {
     playerChoice = prompt('Choose rock, paper or scissors')
@@ -69,7 +67,7 @@ function game() {
   winCount('reset')
 }
 
-//Takes in different commands and returns the information needed
+//Takes in different commands to increase the win count or reset to zero
 function winCount(command) {
   if (command == 'player') {
     playerWinCount++
@@ -81,15 +79,20 @@ function winCount(command) {
   }
 }
 
+//Prints an end message to the console on who won and the score
 function endMessage() {
   let result
 
-  if (playerWinCount > compWinCount) {
-    result = 'won'
-  } else if (playerWinCount < compWinCount) {
-    result = 'lost'
-  } else {
-    result = 'drew'
-  }
+  // if (playerWinCount > compWinCount) {
+  //   result = 'won'
+  // } else if (playerWinCount < compWinCount) {
+  //   result = 'lost'
+  // } else {
+  //   result = 'drew'
+  // }
+  // below is the ternary equivalent of the commented section above
+  result = playerWinCount > compWinCount ? 'won' : 
+  playerWinCount < compWinCount ? 'lost' : 'drew'
+
   return `You ${result} ${playerWinCount} to ${compWinCount}`
 }
