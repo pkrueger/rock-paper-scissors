@@ -23,12 +23,12 @@ function playRound(playerChoice, computerChoice = getComputerChoice()) {
   } else if (winConditions(playerChoice, computerChoice)) {
     winCount('player')
     return `You win! ${firstCapital(playerChoice)} beats ` + 
-    firstCapital(computerChoice)
+            firstCapital(computerChoice)
 
   } else {
     winCount('computer')
     return `You lose! ${firstCapital(playerChoice)} is beaten by ` +
-    firstCapital(computerChoice)
+            firstCapital(computerChoice)
   }
 }
 
@@ -43,8 +43,8 @@ function winConditions(playerChoice, computerChoice) {
   let cc = computerChoice
   
   return (pc == 'rock' && cc == 'scissors') || 
-  (pc == 'paper' && cc == 'rock') || 
-  (pc == 'scissors' && cc == 'paper')
+         (pc == 'paper' && cc == 'rock') || 
+         (pc == 'scissors' && cc == 'paper')
 }
 
 //Capitalizes the first letter of the inputted string
@@ -94,7 +94,7 @@ function endMessage(scores) {
   // }
   // below is the ternary equivalent of the commented section above
   let result = scores.player > scores.computer ? 'won' : 
-  scores.player < scores.computer ? 'lost' : 'drew'
+               scores.player < scores.computer ? 'lost' : 'drew'
 
   return `You ${result} ${scores.player} to ${scores.computer}`
 }
