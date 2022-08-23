@@ -62,22 +62,22 @@ function firstCapital(string) {
 //to the computer choice. Keeps the score and decides a winner at the end
 function game() {
   for (let i = 0; i < 5; i++) {
-    playerChoice = prompt('Choose rock, paper or scissors')
+    let playerChoice = prompt('Choose rock, paper or scissors')
     console.log(playRound(playerChoice))
   }
-  console.log(endMessage(winCount()))
+  console.log(endMessage())
   winCount('reset')
 }
 
 //Takes in different commands to increase the win count or reset to zero
 function winCount(command) {
   if (command == 'player') {
-    scores.player++
+    scores.player++;
   } else if (command == 'computer') {
-    scores.computer++
+    scores.computer++;
   } else if (command == 'reset') {
-    scores.player = 0
-    scores.computer = 0
+    scores.player = 0;
+    scores.computer = 0;
   }
 }
 
