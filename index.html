@@ -4,12 +4,30 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/c01e6e9bae.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
   <script src="app.js" defer></script>
-  <title>Document</title>
+  <title>RPS Fight</title>
 </head>
 
 <body>
+  <div id="text-container">
+    <div class="round-text">Best of 5 rounds</div>
+    <div class="battle-text">Choose your weapon!</div>
+  </div>
 
+  <div class="game-container">
+    <ul id="selection" hidden>
+      <button id="rock">
+        <i class="fa-solid fa-hand-fist"></i>
+      </button>
+      <button id="paper">
+        <i class="fa-solid fa-hand"></i>
+      </button>
+      <button id="scissors">
+        <i class="fa-solid fa-hand-scissors"></i>
+      </button>
+    </ul>
+  </div>
 </body>
 </html>
